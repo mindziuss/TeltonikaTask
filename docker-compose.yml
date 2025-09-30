@@ -15,6 +15,7 @@ services:
       - laravel_network
     depends_on:
       - mysql
+      - mailpit
 
   nginx:
     image: nginx:latest
@@ -30,6 +31,15 @@ services:
       - laravel_network
     depends_on:
       - app
+
+  mailpit:
+    image: axllent/mailpit
+    container_name: mailpit
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+    networks:
+      - laravel_network
 
   mysql:
     image: mysql:8.0

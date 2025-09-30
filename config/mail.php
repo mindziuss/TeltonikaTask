@@ -1,7 +1,8 @@
 <?php
 
 return [
-
+    'default_mail' => env('MAIL_FROM_ADDRESS', 'no-reply@taskcrm.com'),
+    'default_name' => env('MAIL_FROM_NAME', 'TaskCRM'),
     /*
     |--------------------------------------------------------------------------
     | Default Mailer
