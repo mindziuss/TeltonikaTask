@@ -6,11 +6,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\hasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use App\Models\Employee;
 
-class User extends Authenticatable
+class Company extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
     /**
@@ -22,6 +23,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'url',
     ];
 
     /**
@@ -47,8 +49,13 @@ class User extends Authenticatable
         ];
     }
 
+    public function employees(): hasMany
+    {
+        return $this->hasMany(Employee::class);
+    }
+
     public function roles(): BelongsToMany
     {
-        return $this->belongsToMany(Role::class, 'user_role');
+        return $this->belongsToMany(Role::class, 'company_role');
     }
 }
