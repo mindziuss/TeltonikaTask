@@ -1,7 +1,7 @@
 ## TELTONIKA TASK
 
 ## About service requirements
-- Atleast PHP 8.3.0.
+- At least PHP 8.3.0.
 - Docker with Ubuntu distribution. (If using windows WSL with Ubuntu distribution)
 - NPM 22^.
 - Make.
